@@ -1,0 +1,22 @@
+<mat-form-field appearance="outline" style="width: 15rem">
+  <mat-label>
+    <img src="../../../assets/img/lupa.svg" alt="lupa" style="height: 20px" />
+    Filtro por nome...
+  </mat-label>
+  <input
+    matInput
+    type="text"
+    [(ngModel)]="valorFiltro"
+    autocomplete="off"
+    (keyup)="debounce.next($any($event.target).value)"
+  />
+  <button
+    *ngIf="valorFiltro"
+    matSuffix
+    mat-icon-button
+    aria-label="Limpar"
+    (click)="limparFiltroInput()"
+  >
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-form-field>

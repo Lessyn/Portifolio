@@ -1,0 +1,20 @@
+<p class="text-center text-muted" *ngIf="!personagens.length">
+  Não existem mais personagens!!
+</p>
+
+<ol class=" container list-unstyled" style="text-align:-webkit-center;">
+    <li *ngFor="let colunas of linhas" class="row mb-5">
+        <div *ngFor="let personagem of colunas" class="col-3">
+          <a style="text-decoration: none;  color: inherit" [routerLink]="['/character', personagem.id]">
+            <rm-card             
+                (click)="personagemDetalhes(personagem.id)"     
+                [image] = "personagem.image" 
+                [name] = "personagem.name"
+                [species]="personagem.species"
+                [gender]="personagem.gender"
+                [status]="personagem.status">              
+            </rm-card>
+          </a>
+        </div>
+    </li>
+  </ol>  

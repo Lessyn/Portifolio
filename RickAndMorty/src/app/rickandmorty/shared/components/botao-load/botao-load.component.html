@@ -1,0 +1,9 @@
+<div class="text-center" *ngIf="!ultimaPagina; else mensagemNoTemplate">
+  <button class="btn btn-primary">Load More</button>
+</div>
+
+<ng-template #mensagemNoTemplate>
+  <p class="text-center text-muted">
+    Não existem mais personagens para mostrar!
+  </p>
+</ng-template>

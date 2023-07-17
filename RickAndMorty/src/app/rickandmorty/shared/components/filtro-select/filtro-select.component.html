@@ -1,0 +1,11 @@
+ <mat-form-field appearance="outline" style="width: 15rem">
+      <mat-label> {{labelFiltroPorSelect}} </mat-label>
+      <mat-select (selectionChange)="eventoFiltroSelect($event.value)">
+        <mat-option 
+          *ngFor="let filtroItem of filtroItensSelect; let i = index"
+          [value]="filtroItem"
+        >
+          {{ filtroItem }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>   

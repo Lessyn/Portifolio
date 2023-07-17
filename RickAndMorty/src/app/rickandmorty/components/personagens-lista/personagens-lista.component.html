@@ -1,0 +1,42 @@
+<div class="container" style="text-align: center">
+  <img src="../../../assets/img/rickandmorty.svg" alt="Imagem RickandMorty" />
+</div>
+
+<div class="container">
+  <div fxLayoutGap="90px" fxFlex.xs="1 0 auto" style="text-align: center">
+    <rm-filtro-input
+      (emitirEventoInput)="filtrarNome($event)"
+      (emitirEventoLimparFiltroInput)="limparFiltroAlert()"
+    >
+    </rm-filtro-input>
+
+    <rm-filtro-select
+      [filtroItensSelect]="tiposEspecies"
+      labelFiltroPorSelect="Species"
+      (eventoEmitidoPorSelect)="filtrarEspecies($event)"
+    >
+    </rm-filtro-select>    
+
+    <rm-filtro-select
+      [filtroItensSelect]="tiposGeneros"
+      labelFiltroPorSelect="Genders"
+      (eventoEmitidoPorSelect)="filtrarGeneros($event)"
+    >
+    </rm-filtro-select>
+
+    <rm-filtro-select
+      [filtroItensSelect]="tiposStatus"
+      labelFiltroPorSelect="Status"
+      (eventoEmitidoPorSelect)="filtrarStatus($event)"
+    >
+    </rm-filtro-select>
+  </div>
+</div>
+
+<rm-personagens
+  [personagens]="personagens">
+</rm-personagens>
+
+<rm-botao-load 
+  (click)="carregarNovosPersonagens()" [ultimaPagina]="ultimaPagina">
+</rm-botao-load>

@@ -1,0 +1,84 @@
+<div class="bg-white border-top" *ngIf="personagem$ | async as personagem">
+  <div class="container" style="text-align: -webkit-center">
+    <div class="personagemImagem">
+      <img
+        [src]="personagem.image"
+        alt=""
+        style="border-radius: 15em; margin-top: 2em"
+      />
+    </div>
+
+    <div class="personagemNome" style="font-size: 3.5em">
+      <span>
+        {{ personagem.name }}
+      </span>
+    </div>
+
+    <div class="detalhes col-12" style="display: flex">
+      <!-- coluna informacoes -->
+      <div
+        class="col-6"
+        style="margin-right: 20px; padding-left: 150px; text-align: start"
+      >
+        <h5 style="color: #8e8e93; margin-bottom: 2em; margin-top: 2em">
+          Informations
+        </h5>
+
+        <div class="Informacoes">
+          <div style="border-bottom: 1px solid #bbbbbb3b">
+            <h6>Gender</h6>
+            <span>{{ personagem.gender }}</span>
+          </div>
+
+          <div style="border-bottom: 1px solid #bbbbbb3b">
+            <h6>Status</h6>
+            <span>{{ personagem.status }}</span>
+          </div>
+
+          <div style="border-bottom: 1px solid #bbbbbb3b">
+            <h6>Specie</h6>
+            <span>{{ personagem.species }}</span>
+          </div>
+
+          <div style="border-bottom: 1px solid #bbbbbb3b">
+            <h6>Origin</h6>
+            <span>{{ personagem.origin["name"] }}</span>
+          </div>
+
+          <div style="border-bottom: 1px solid #bbbbbb3b">
+            <h6>Type</h6>
+            <span>{{ personagem.type }}</span>
+          </div>
+
+          <div style="border-bottom: 1px solid #bbbbbb3b">
+            <h6>Location</h6>
+            <span>{{ personagem.location["name"] }}</span>
+          </div>
+        </div>
+        <!-- fim coluna informacoes -->
+      </div>
+
+      <!-- coluna episodios -->
+      <div class="col-6" style="padding-right: 150px">
+        <h5
+          style="
+            text-align: start;
+            color: #8e8e93;
+            margin-bottom: 2em;
+            margin-top: 2em;
+          "
+        >
+          Episodes
+        </h5>
+
+          <div
+            *ngFor="let episodio of episodios"
+            style="text-align: start; border-bottom: 1px solid #bbbbbb3b">
+            <h6>{{ episodio.episode }}</h6>
+            <h6>{{ episodio.name }}</h6>
+            <h6>{{ episodio.air_date }}</h6>
+          </div>
+      fim coluna episodios
+    </div>
+  </div>
+</div>
